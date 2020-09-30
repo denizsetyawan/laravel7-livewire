@@ -10,7 +10,7 @@ class ContactIndex extends Component
     public $statusUpdate = false;
     
     protected $listeners = [
-        'contactStored' => 'handleStored'
+        'contactStored' => 'handleStored',
         'contactUpdated' => 'handleUpdated'
     ];
     
@@ -27,6 +27,17 @@ class ContactIndex extends Component
         $this->statusUpdate = true;
         $contact = Contact::find($id);
         $this->emit('getContact', $contact);
+    }
+
+    //Menghapus Data
+    public function destroy($id)
+    {
+        if($id)
+        {
+            $data = Contact::find($id);
+            $data->delete();
+            session()->flash('message', 'Contact was deleted!');
+        }
     }
     
     public function handleStored($contact)
