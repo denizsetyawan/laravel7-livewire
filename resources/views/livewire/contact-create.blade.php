@@ -6,7 +6,7 @@
                     <input wire:model="name" type="text" class="form-control" placeholder="Name">
                 </div>
                 <div class="col">
-                    <input wire:model="phone" type="number" name="" class="form-control" placeholder="Phone">
+                    <input wire:model="phone" type="text" name="" class="form-control" placeholder="Phone">
                 </div>
             </div>
         </div>

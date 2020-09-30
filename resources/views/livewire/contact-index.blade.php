@@ -1,9 +1,15 @@
 <div>
-   
-   <livewire:contact-create></livewire:contact-create>
-   
-   <hr>
-   
+
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+    @endif
+
+    <livewire:contact-create></livewire:contact-create>
+
+    <hr>
+
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -14,10 +20,10 @@
             </tr>
         </thead>
         <tbody>
-          @php
-          $no=1;
-          @endphp
-           @foreach ($contact as $c)
+            @php
+            $no=1;
+            @endphp
+            @foreach ($contact as $c)
             <tr>
                 <th scope="row">{{ $no++ }}</th>
                 <td>{{ $c->name }}</td>
