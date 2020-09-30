@@ -1,4 +1,9 @@
 <div>
+   
+   <livewire:contact-create></livewire:contact-create>
+   
+   <hr>
+   
     <table class="table">
         <thead class="thead-dark">
             <tr>
