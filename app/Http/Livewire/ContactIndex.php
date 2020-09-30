@@ -7,6 +7,8 @@ use App\Contact;
 
 class ContactIndex extends Component
 {
+    public $statusUpdate = false;
+    
     protected $listeners = [
         'contactStored' => 'handleStored'
     ];
@@ -17,6 +19,13 @@ class ContactIndex extends Component
     {
         $this->contact = Contact::latest()->get();
         return view('livewire.contact-index');
+    }
+
+    public function getContact($id)
+    {
+        $this->statusUpdate = true;
+        $contact = Contact::find($id);
+        $this->emit('getContact', $contact);
     }
     
     public function handleStored($contact)

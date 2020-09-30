@@ -6,7 +6,11 @@
     </div>
     @endif
 
+    @if($statusUpdate)
+    <livewire:contact-update></livewire:contact-update>
+    @else
     <livewire:contact-create></livewire:contact-create>
+    @endif
 
     <hr>
 
@@ -29,7 +33,7 @@
                 <td>{{ $c->name }}</td>
                 <td>{{ $c->phone }}</td>
                 <td>
-                    <button class="btn btn-sm btn-info text-white">Edit</button>
+                    <button wire:click="getContact({{ $c->id }})" class="btn btn-sm btn-info text-white">Edit</button>
                     <button class="btn btn-sm btn-danger text-white">Delete</button>
                 </td>
             </tr>
